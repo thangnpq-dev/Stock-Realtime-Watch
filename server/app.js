@@ -26,6 +26,11 @@ app.get('/', (req, res) => {
   res.render('index', { error: null, stockData: null });
 });
 
+// Minimal UI route
+app.get('/minimal', (req, res) => {
+  res.render('minimal');
+});
+
 // API endpoint để nhận danh sách mã cổ phiếu và trả về dữ liệu
 app.post('/api/stock-data', async (req, res) => {
   try {

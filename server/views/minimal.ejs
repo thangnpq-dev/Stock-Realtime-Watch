@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Mini-Watch</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/minimal-style.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="mini-line-container">
+    <!-- Header with tabs and settings button -->
+    <div class="mini-line-header">
+      <div class="tab-menu">
+        <button class="tab-button active" data-tab="all">All</button>
+        <button class="tab-button" data-tab="favorite">Fav</button>
+      </div>
+      <div class="controls">
+        <button id="addStockBtn" class="control-button" title="Add Stock">
+          <i class="fas fa-plus"></i>
+        </button>
+        <button id="settingsBtn" class="control-button" title="Settings">
+          <i class="fas fa-cog"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Stock list content - vertical layout -->
+    <div class="mini-line-content">
+      <div class="stocks-line" id="allStocksLine">
+        <!-- All stocks will be displayed here -->
+        <div class="empty-message">No stocks</div>
+      </div>
+      
+      <div class="stocks-line hidden" id="favoriteStocksLine">
+        <!-- Favorite stocks will be displayed here -->
+        <div class="empty-message">No favorites</div>
+      </div>
+    </div>
+    
+    <!-- Footer with auto-update controls -->
+    <div class="mini-line-footer">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="socketToggle" checked>
+        <span class="status-text">Auto</span>
+      </div>
+      <div class="refresh-controls">
+        <button id="refreshBtn" class="control-button refresh-button" title="Refresh">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+        <span class="mini-clock" id="refreshCountdown">5</span>
+      </div>
+    </div>
+    
+    <!-- Floating panels -->
+    <div class="panel hidden" id="addStockPanel">
+      <div class="panel-header">
+        <h5>Add Stock</h5>
+        <button class="close-button" id="closeAddPanel">&times;</button>
+      </div>
+      <div class="panel-body">
+        <input type="text" id="stockCodeInput" class="form-control" placeholder="Enter stock code">
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="checkbox" id="addToFavorite">
+          <label class="form-check-label" for="addToFavorite">Add to favorites</label>
+        </div>
+        <button class="btn-primary mt-2" id="submitStockBtn">Add</button>
+      </div>
+    </div>
+    
+    <div class="panel hidden" id="settingsPanel">
+      <div class="panel-header">
+        <h5>Settings</h5>
+        <button class="close-button" id="closeSettingsPanel">&times;</button>
+      </div>
+      <div class="panel-body">
+        <button class="btn-danger mb-2" id="clearAllBtn">Clear All</button>
+        <button class="btn-warning mb-2" id="clearFavoritesBtn">Clear Favorites</button>
+        <button class="btn-secondary" id="goToFullViewBtn">Full View</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // DOM Elements
+      const socketToggle = document.getElementById('socketToggle');
+      const allStocksLine = document.getElementById('allStocksLine');
+      const favoriteStocksLine = document.getElementById('favoriteStocksLine');
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const stocksLines = document.querySelectorAll('.stocks-line');
+      const addStockBtn = document.getElementById('addStockBtn');
+      const addStockPanel = document.getElementById('addStockPanel');
+      const closeAddPanel = document.getElementById('closeAddPanel');
+      const stockCodeInput = document.getElementById('stockCodeInput');
+      const addToFavorite = document.getElementById('addToFavorite');
+      const submitStockBtn = document.getElementById('submitStockBtn');
+      const settingsBtn = document.getElementById('settingsBtn');
+      const settingsPanel = document.getElementById('settingsPanel');
+      const closeSettingsPanel = document.getElementById('closeSettingsPanel');
+      const clearAllBtn = document.getElementById('clearAllBtn');
+      const clearFavoritesBtn = document.getElementById('clearFavoritesBtn');
+      const goToFullViewBtn = document.getElementById('goToFullViewBtn');
+      const refreshCountdown = document.getElementById('refreshCountdown');
+      const refreshBtn = document.getElementById('refreshBtn');
+      
+      // Global variables
+      let socket;
+      let stockCodes = [];
+      let favoriteStocks = [];
+      let countdownTimer;
+      let countdown = 5;
+      let socketConnected = true;
+      
+      // Initialize Socket.io - only called when needed
+      function initializeSocket() {
+        // If socket already exists and is connected, don't create a new one
+        if (socket && socket.connected) return socket;
+        
+        // Close old connection if exists
+        if (socket) {
+          socket.disconnect();
+          socket.off(); // Remove all listeners
+        }
+        
+        // Create new connection
+        socket = io({forceNew: true});
+        
+        // Handle connection event
+        socket.on('connect', function() {
+          console.log('Socket connected:', socket.id);
+          if (stockCodes.length > 0) {
+            socket.emit('watch-stocks', stockCodes);
+          }
+        });
+        
+        // Handle data reception event
+        socket.on('stock-data', function(data) {
+          updateStocksLine(data);
+          resetCountdown(); // reset countdown when receiving data
+        });
+        
+        // Handle errors
+        socket.on('error', function(error) {
+          console.error('Socket error:', error);
+        });
+        
+        // Handle disconnection
+        socket.on('disconnect', function() {
+          console.log('Socket disconnected');
+        });
+        
+        return socket;
+      }
+      
+      // Initialize - Get data from localStorage if exists
+      function initialize() {
+        // Load stocks
+        const savedStocks = localStorage.getItem('minimalStockCodes');
+        if (savedStocks) {
+          stockCodes = JSON.parse(savedStocks);
+        }
+        
+        // Load favorites
+        const savedFavorites = localStorage.getItem('minimalFavoriteStocks');
+        if (savedFavorites) {
+          favoriteStocks = JSON.parse(savedFavorites);
+        }
+        
+        renderStocksLines();
+        
+        if (stockCodes.length > 0) {
+          fetchStockData();
+          startCountdown();
+        }
+        
+        // Initialize Socket.IO only when needed
+        if (socketConnected && stockCodes.length > 0) {
+          initializeSocket();
+        }
+      }
+      
+      // Save stock codes to localStorage
+      function saveStockCodes() {
+        localStorage.setItem('minimalStockCodes', JSON.stringify(stockCodes));
+      }
+      
+      // Save favorite stocks to localStorage
+      function saveFavoriteStocks() {
+        localStorage.setItem('minimalFavoriteStocks', JSON.stringify(favoriteStocks));
+      }
+      
+      // Add new stock code
+      function addStockCode(code, isFavorite = false) {
+        code = code.trim().toUpperCase();
+        if (!code) return;
+        
+        // Check if code already exists
+        if (!stockCodes.includes(code)) {
+          stockCodes.push(code);
+          saveStockCodes();
+          
+          // Add to favorites if requested
+          if (isFavorite && !favoriteStocks.includes(code)) {
+            favoriteStocks.push(code);
+            saveFavoriteStocks();
+          }
+          
+          renderStocksLines();
+          
+          // If it's the first code, start polling
+          if (stockCodes.length === 1) {
+            fetchStockData();
+            startCountdown();
+          } else {
+            fetchStockData(); // Update data immediately when adding new stock
+          }
+        } else if (isFavorite && !favoriteStocks.includes(code)) {
+          // If stock already exists but needs to be added to favorites
+          favoriteStocks.push(code);
+          saveFavoriteStocks();
+          renderStocksLines();
+        }
+        
+        stockCodeInput.value = '';
+      }
+      
+      // Remove stock code
+      function removeStockCode(code, fromFavoritesOnly = false) {
+        if (fromFavoritesOnly) {
+          // Remove only from favorites
+          const favIndex = favoriteStocks.indexOf(code);
+          if (favIndex > -1) {
+            favoriteStocks.splice(favIndex, 1);
+            saveFavoriteStocks();
+            renderStocksLines();
+          }
+        } else {
+          // Remove from all lists
+          const index = stockCodes.indexOf(code);
+          if (index > -1) {
+            stockCodes.splice(index, 1);
+            saveStockCodes();
+            
+            // Also remove from favorites if present
+            const favIndex = favoriteStocks.indexOf(code);
+            if (favIndex > -1) {
+              favoriteStocks.splice(favIndex, 1);
+              saveFavoriteStocks();
+            }
+            
+            renderStocksLines();
+            
+            // If no stocks left, stop countdown
+            if (stockCodes.length === 0) {
+              stopCountdown();
+            } else {
+              fetchStockData(); // Update the view immediately
+            }
+          }
+        }
+      }
+      
+      // Toggle favorite status
+      function toggleFavorite(code) {
+        if (!stockCodes.includes(code)) return;
+        
+        const favIndex = favoriteStocks.indexOf(code);
+        if (favIndex > -1) {
+          // Remove from favorites
+          favoriteStocks.splice(favIndex, 1);
+        } else {
+          // Add to favorites
+          favoriteStocks.push(code);
+        }
+        
+        saveFavoriteStocks();
+        renderStocksLines();
+      }
+      
+      // Display stock lines
+      function renderStocksLines() {
+        // Render All Stocks line
+        if (stockCodes.length === 0) {
+          allStocksLine.innerHTML = '<div class="empty-message">No stocks</div>';
+        } else {
+          let allStocksHTML = '';
+          stockCodes.forEach(code => {
+            const isFavorite = favoriteStocks.includes(code);
+            allStocksHTML += `
+              <div class="stock-item" data-code="${code}">
+                <div class="stock-code">${code}</div>
+                <div class="stock-data">
+                  <span class="price">--.--</span>
+                  <span class="change unchanged">+0.00 (0.00%)</span>
+                </div>
+                <div class="stock-actions">
+                  <button class="action-btn favorite-btn ${isFavorite ? 'active' : ''}" data-code="${code}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}">
+                    <i class="fas fa-star"></i>
+                  </button>
+                  <button class="action-btn remove-btn" data-code="${code}" title="Remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            `;
+          });
+          allStocksLine.innerHTML = allStocksHTML;
+        }
+        
+        // Render Favorite Stocks line
+        if (favoriteStocks.length === 0) {
+          favoriteStocksLine.innerHTML = '<div class="empty-message">No favorites</div>';
+        } else {
+          let favoritesHTML = '';
+          favoriteStocks.forEach(code => {
+            favoritesHTML += `
+              <div class="stock-item" data-code="${code}">
+                <div class="stock-code">${code}</div>
+                <div class="stock-data">
+                  <span class="price">--.--</span>
+                  <span class="change unchanged">+0.00 (0.00%)</span>
+                </div>
+                <div class="stock-actions">
+                  <button class="action-btn unfavorite-btn" data-code="${code}" title="Remove from favorites">
+                    <i class="fas fa-star"></i>
+                  </button>
+                  <button class="action-btn remove-btn" data-code="${code}" title="Remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            `;
+          });
+          favoriteStocksLine.innerHTML = favoritesHTML;
+        }
+        
+        // Add event listeners to buttons
+        document.querySelectorAll('.favorite-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const code = this.getAttribute('data-code');
+            toggleFavorite(code);
+          });
+        });
+        
+        document.querySelectorAll('.unfavorite-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const code = this.getAttribute('data-code');
+            removeStockCode(code, true); // Remove from favorites only
+          });
+        });
+        
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const code = this.getAttribute('data-code');
+            removeStockCode(code, false); // Remove completely
+          });
+        });
+      }
+      
+      // Update stock data in the UI
+      function updateStocksLine(data) {
+        if (!data || !data.data || !Array.isArray(data.data)) {
+          return;
+        }
+        
+        // Update each stock item with new data
+        data.data.forEach(stock => {
+          const allStockItems = allStocksLine.querySelectorAll(`.stock-item[data-code="${stock.code}"]`);
+          const favStockItems = favoriteStocksLine.querySelectorAll(`.stock-item[data-code="${stock.code}"]`);
+          
+          const items = [...allStockItems, ...favStockItems];
+          
+          items.forEach(item => {
+            // First, remove old change classes
+            item.classList.remove('up', 'down', 'unchanged', 'ceiling', 'floor');
+            
+            const priceElement = item.querySelector('.price');
+            const changeElement = item.querySelector('.change');
+            
+            if (priceElement && changeElement) {
+              // Update price
+              priceElement.textContent = stock.price;
+              
+              // Determine change class and update change text
+              let changeClass = 'unchanged';
+              let changeSign = '';
+              let changeText = '';
+              
+              // Get the percentage change value for comparison
+              const percentValue = parseFloat(stock.percentChange.replace('%', ''));
+              
+              if (parseFloat(stock.change) > 0) {
+                // Check for ceiling (>= 6.7%)
+                if (percentValue >= 6.7) {
+                  changeClass = 'ceiling';
+                } else {
+                  changeClass = 'up';
+                }
+                changeSign = '+';
+              } else if (parseFloat(stock.change) < 0) {
+                // Check for floor (<= -6.7%)
+                if (percentValue <= -6.7) {
+                  changeClass = 'floor';
+                } else {
+                  changeClass = 'down';
+                }
+              }
+              
+              // Use percentChange directly from the JSON data
+              changeText = `${changeSign}${stock.change} (${stock.percentChange})`;
+              
+              // Update change text and class
+              changeElement.textContent = changeText;
+              changeElement.className = `change ${changeClass}`;
+              
+              // Add class to the whole item for border color
+              item.classList.add(changeClass);
+            }
+          });
+        });
+      }
+      
+      // Fetch stock data from API
+      function fetchStockData() {
+        if (stockCodes.length === 0) return;
+        
+        fetch('/api/stock-data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ stockCodes })
+        })
+        .then(response => response.json())
+        .then(data => {
+          updateStocksLine(data);
+          resetCountdown();
+        })
+        .catch(error => {
+          console.error('Error fetching stock data:', error);
+        });
+      }
+      
+      // Reset countdown
+      function resetCountdown() {
+        countdown = 5;
+        refreshCountdown.textContent = countdown;
+      }
+      
+      // Start countdown for auto refresh
+      function startCountdown() {
+        // Clear existing timer if any
+        if (countdownTimer) {
+          clearInterval(countdownTimer);
+        }
+        
+        countdown = 5;
+        refreshCountdown.textContent = countdown;
+        
+        countdownTimer = setInterval(() => {
+          countdown--;
+          refreshCountdown.textContent = countdown;
+          
+          if (countdown <= 0) {
+            // Reset countdown
+            countdown = 5;
+            refreshCountdown.textContent = countdown;
+            
+            // If socket is enabled, no need to manually fetch
+            if (!socketConnected) {
+              fetchStockData();
+            }
+          }
+        }, 1000);
+      }
+      
+      // Stop countdown
+      function stopCountdown() {
+        if (countdownTimer) {
+          clearInterval(countdownTimer);
+          countdownTimer = null;
+        }
+        refreshCountdown.textContent = '-';
+      }
+      
+      // Tab switching functionality
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabName = button.getAttribute('data-tab');
+          
+          // Update active tab button
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Show corresponding tab content
+          stocksLines.forEach(line => line.classList.add('hidden'));
+          document.getElementById(`${tabName}StocksLine`).classList.remove('hidden');
+        });
+      });
+      
+      // Add stock button
+      addStockBtn.addEventListener('click', () => {
+        addStockPanel.classList.toggle('hidden');
+        settingsPanel.classList.add('hidden'); // Hide settings if open
+        stockCodeInput.focus();
+      });
+      
+      // Close add panel button
+      closeAddPanel.addEventListener('click', () => {
+        addStockPanel.classList.add('hidden');
+      });
+      
+      // Submit stock button
+      submitStockBtn.addEventListener('click', () => {
+        const code = stockCodeInput.value.trim();
+        const isFavorite = addToFavorite.checked;
+        
+        if (code) {
+          addStockCode(code, isFavorite);
+          addStockPanel.classList.add('hidden');
+        }
+      });
+      
+      // Stock code input keypress
+      stockCodeInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          const code = stockCodeInput.value.trim();
+          const isFavorite = addToFavorite.checked;
+          
+          if (code) {
+            addStockCode(code, isFavorite);
+            addStockPanel.classList.add('hidden');
+          }
+        }
+      });
+      
+      // Settings button
+      settingsBtn.addEventListener('click', () => {
+        settingsPanel.classList.toggle('hidden');
+        addStockPanel.classList.add('hidden'); // Hide add form if open
+      });
+      
+      // Close settings button
+      closeSettingsPanel.addEventListener('click', () => {
+        settingsPanel.classList.add('hidden');
+      });
+      
+      // Clear all stocks button
+      clearAllBtn.addEventListener('click', () => {
+        if (stockCodes.length === 0) return;
+        
+        if (confirm('Are you sure you want to remove all stocks?')) {
+          stockCodes = [];
+          favoriteStocks = [];
+          saveStockCodes();
+          saveFavoriteStocks();
+          renderStocksLines();
+          stopCountdown();
+          settingsPanel.classList.add('hidden');
+        }
+      });
+      
+      // Clear favorites button
+      clearFavoritesBtn.addEventListener('click', () => {
+        if (favoriteStocks.length === 0) return;
+        
+        if (confirm('Are you sure you want to remove all favorite stocks?')) {
+          favoriteStocks = [];
+          saveFavoriteStocks();
+          renderStocksLines();
+          settingsPanel.classList.add('hidden');
+        }
+      });
+      
+      // Go to full view button
+      goToFullViewBtn.addEventListener('click', () => {
+        window.location.href = '/';
+      });
+      
+      // Manual refresh button
+      refreshBtn.addEventListener('click', () => {
+        fetchStockData();
+      });
+      
+      // Socket toggle
+      socketToggle.addEventListener('change', function() {
+        socketConnected = this.checked;
+        
+        if (socketConnected) {
+          // Connect socket
+          if (stockCodes.length > 0) {
+            socket = initializeSocket();
+            socket.emit('watch-stocks', stockCodes);
+          }
+        } else {
+          // Disconnect socket
+          if (socket) {
+            socket.disconnect();
+            console.log('Socket disconnected manually');
+          }
+        }
+      });
+      
+      // Close panels when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!addStockPanel.contains(e.target) && e.target !== addStockBtn && !addStockBtn.contains(e.target)) {
+          addStockPanel.classList.add('hidden');
+        }
+        
+        if (!settingsPanel.contains(e.target) && e.target !== settingsBtn && !settingsBtn.contains(e.target)) {
+          settingsPanel.classList.add('hidden');
+        }
+      });
+      
+      // Set initial position and make container draggable with boundaries
+      const container = document.querySelector('.mini-line-container');
+      let isDragging = false;
+      let offsetX, offsetY;
+      
+      // Position initially in the center
+      positionContainerInView();
+      
+      // Function to reposition container if it's outside the viewport
+      function positionContainerInView() {
+        const rect = container.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        // If outside viewport, reposition
+        if (rect.right > viewportWidth || rect.left < 0 || rect.bottom > viewportHeight || rect.top < 0) {
+          // Center the container
+          container.style.left = Math.max(0, (viewportWidth - rect.width) / 2) + 'px';
+          container.style.top = Math.max(0, (viewportHeight - rect.height) / 2) + 'px';
+        }
+      }
+      
+      // Handle window resize
+      window.addEventListener('resize', positionContainerInView);
+      
+      container.addEventListener('mousedown', function(e) {
+        // Only allow dragging from the edges or headers, not from buttons or form elements
+        if (e.target === container || e.target.classList.contains('mini-line-header') || 
+            e.target.classList.contains('mini-line-content') || e.target.classList.contains('mini-line-footer')) {
+          isDragging = true;
+          offsetX = e.clientX - container.getBoundingClientRect().left;
+          offsetY = e.clientY - container.getBoundingClientRect().top;
+        }
+      });
+      
+      document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        
+        // Calculate new position
+        let newLeft = e.clientX - offsetX;
+        let newTop = e.clientY - offsetY;
+        
+        // Get window dimensions and container dimensions
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const containerWidth = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
+        
+        // Strict boundary enforcement
+        newLeft = Math.max(0, Math.min(newLeft, viewportWidth - containerWidth));
+        newTop = Math.max(0, Math.min(newTop, viewportHeight - containerHeight));
+        
+        // Apply the new position
+        container.style.left = `${newLeft}px`;
+        container.style.top = `${newTop}px`;
+      });
+      
+      document.addEventListener('mouseup', function() {
+        isDragging = false;
+      });
+      
+      // Initialize the app
+      initialize();
+    });
+  </script>
+</body>
+</html>

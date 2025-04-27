@@ -1,0 +1,2896 @@
+{
+  "timestamp": "2025-04-27T10:08:23.712Z",
+  "data": [
+    {
+      "code": "AAA",
+      "price": "6.99",
+      "change": "0.06",
+      "percentChange": "0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "AAM",
+      "price": "6.95",
+      "change": "0.05",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "AAT**",
+      "price": "2.94",
+      "change": "0.02",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ABR",
+      "price": "16.70",
+      "change": "0.10",
+      "percentChange": "0.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ABS**",
+      "price": "3.49",
+      "change": "-0.01",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ABT",
+      "price": "43.50",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ACB",
+      "price": "23.90",
+      "change": "-0.25",
+      "percentChange": "-1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ACC",
+      "price": "14.10",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ACG",
+      "price": "35.20",
+      "change": "-0.80",
+      "percentChange": "-2.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ACL",
+      "price": "9.88",
+      "change": "0.22",
+      "percentChange": "2.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ADG",
+      "price": "9.90",
+      "change": "-0.10",
+      "percentChange": "-1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ADP",
+      "price": "30.10",
+      "change": "0.10",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ADS",
+      "price": "7.84",
+      "change": "-0.07",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "AGG",
+      "price": "15.25",
+      "change": "-0.40",
+      "percentChange": "-2.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "AGM**",
+      "price": "1.57",
+      "change": "-0.06",
+      "percentChange": "-3.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "AGR",
+      "price": "14.60",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ANV",
+      "price": "15.45",
+      "change": "-0.40",
+      "percentChange": "-2.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "APG",
+      "price": "12.50",
+      "change": "0.80",
+      "percentChange": "6.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "APH**",
+      "price": "6.73",
+      "change": "-0.02",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ASG",
+      "price": "17.50",
+      "change": "-0.05",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ASM",
+      "price": "6.76",
+      "change": "0.16",
+      "percentChange": "2.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ASP**",
+      "price": "5.12",
+      "change": "0.02",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "AST",
+      "price": "56.80",
+      "change": "0.60",
+      "percentChange": "1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BAF",
+      "price": "34.80",
+      "change": "-0.30",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BBC",
+      "price": "52.10",
+      "change": "0.10",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BCE",
+      "price": "9.93",
+      "change": "-0.02",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BCG",
+      "price": "3.06",
+      "change": "0.13",
+      "percentChange": "4.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BCM",
+      "price": "55.80",
+      "change": "0.30",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BFC",
+      "price": "41.05",
+      "change": "-1.00",
+      "percentChange": "-2.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BHN",
+      "price": "36.50",
+      "change": "0.50",
+      "percentChange": "1.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BIC",
+      "price": "34.80",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BID",
+      "price": "35.00",
+      "change": "-0.45",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BKG",
+      "price": "2.88",
+      "change": "0.03",
+      "percentChange": "1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BMC",
+      "price": "21.05",
+      "change": "1.35",
+      "percentChange": "6.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BMI",
+      "price": "21.25",
+      "change": "0.10",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BMP",
+      "price": "142.70",
+      "change": "-0.80",
+      "percentChange": "-0.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BRC",
+      "price": "12.40",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BSI",
+      "price": "44.30",
+      "change": "-0.60",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BSR",
+      "price": "16.05",
+      "change": "0.35",
+      "percentChange": "2.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BTP",
+      "price": "11.60",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BTT",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BVH",
+      "price": "46.10",
+      "change": "-0.35",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "BWE",
+      "price": "47.00",
+      "change": "1.00",
+      "percentChange": "2.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "C32",
+      "price": "18.00",
+      "change": "-0.25",
+      "percentChange": "-1.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "C47**",
+      "price": "6.40",
+      "change": "0.20",
+      "percentChange": "3.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CCC",
+      "price": "21.70",
+      "change": "-1.60",
+      "percentChange": "-6.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CCI",
+      "price": "21.80",
+      "change": "-0.05",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CCL",
+      "price": "6.27",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CDC",
+      "price": "18.70",
+      "change": "0.20",
+      "percentChange": "1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CHP",
+      "price": "34.30",
+      "change": "0.40",
+      "percentChange": "1.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CIG**",
+      "price": "8.00",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CII",
+      "price": "12.80",
+      "change": "0.80",
+      "percentChange": "6.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CKG",
+      "price": "17.10",
+      "change": "1.05",
+      "percentChange": "6.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CLC",
+      "price": "49.30",
+      "change": "-0.25",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CLL",
+      "price": "33.00",
+      "change": "-0.50",
+      "percentChange": "-1.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CLW",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CMG",
+      "price": "31.70",
+      "change": "-0.30",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CMV",
+      "price": "8.00",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CMX**",
+      "price": "6.90",
+      "change": "-0.13",
+      "percentChange": "-1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CNG",
+      "price": "27.35",
+      "change": "-0.35",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "COM",
+      "price": "30.50",
+      "change": "-0.50",
+      "percentChange": "-1.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CRC",
+      "price": "8.92",
+      "change": "-0.07",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CRE",
+      "price": "7.16",
+      "change": "-0.15",
+      "percentChange": "-2.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CSM",
+      "price": "11.30",
+      "change": "0.30",
+      "percentChange": "2.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CSV",
+      "price": "32.20",
+      "change": "-0.20",
+      "percentChange": "-0.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CTD",
+      "price": "84.10",
+      "change": "2.60",
+      "percentChange": "3.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CTF",
+      "price": "22.10",
+      "change": "0.10",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CTG",
+      "price": "37.15",
+      "change": "-0.25",
+      "percentChange": "-0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CTI",
+      "price": "20.10",
+      "change": "-0.10",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CTR",
+      "price": "83.90",
+      "change": "-1.50",
+      "percentChange": "-1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CTS",
+      "price": "31.90",
+      "change": "-0.40",
+      "percentChange": "-1.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "CVT",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "D2D",
+      "price": "40.20",
+      "change": "0.30",
+      "percentChange": "0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DAH",
+      "price": "3.04",
+      "change": "0.01",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DAT",
+      "price": "6.76",
+      "change": "0.03",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DBC",
+      "price": "27.20",
+      "change": "-0.75",
+      "percentChange": "-2.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DBD",
+      "price": "47.85",
+      "change": "-0.05",
+      "percentChange": "-0.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DBT",
+      "price": "12.00",
+      "change": "0.05",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DC4",
+      "price": "12.10",
+      "change": "0.25",
+      "percentChange": "2.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DCL",
+      "price": "23.50",
+      "change": "0.20",
+      "percentChange": "0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DCM",
+      "price": "31.85",
+      "change": "0.40",
+      "percentChange": "1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DGC",
+      "price": "91.20",
+      "change": "-0.40",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DGW",
+      "price": "32.75",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DHA",
+      "price": "38.50",
+      "change": "0.10",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DHC",
+      "price": "29.00",
+      "change": "0.20",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DHG",
+      "price": "97.30",
+      "change": "-0.20",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DHM",
+      "price": "6.80",
+      "change": "0.02",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DIG",
+      "price": "14.70",
+      "change": "-0.20",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DLG**",
+      "price": "2.05",
+      "change": "0.02",
+      "percentChange": "1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DMC",
+      "price": "60.00",
+      "change": "-1.90",
+      "percentChange": "-3.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DPG",
+      "price": "50.80",
+      "change": "1.50",
+      "percentChange": "3.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DPM",
+      "price": "32.50",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DPR",
+      "price": "36.00",
+      "change": "-0.55",
+      "percentChange": "-1.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DQC**",
+      "price": "9.01",
+      "change": "0.01",
+      "percentChange": "0.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DRC",
+      "price": "18.85",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DRH**",
+      "price": "1.89",
+      "change": "0.12",
+      "percentChange": "6.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DRL",
+      "price": "56.50",
+      "change": "0.30",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DSC",
+      "price": "14.95",
+      "change": "0.10",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DSE",
+      "price": "21.70",
+      "change": "0.15",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DSN",
+      "price": "46.10",
+      "change": "-0.30",
+      "percentChange": "-0.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DTA",
+      "price": "4.74",
+      "change": "-0.04",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DTL**",
+      "price": "10.30",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DTT",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DVP",
+      "price": "76.50",
+      "change": "0.50",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DXG",
+      "price": "14.90",
+      "change": "-0.05",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DXS",
+      "price": "6.24",
+      "change": "-0.06",
+      "percentChange": "-1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "DXV**",
+      "price": "3.63",
+      "change": "-0.17",
+      "percentChange": "-4.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "E1VFVN30",
+      "price": "22.80",
+      "change": "0.15",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "EIB",
+      "price": "19.05",
+      "change": "0.10",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ELC",
+      "price": "21.70",
+      "change": "0.85",
+      "percentChange": "4.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "EVE",
+      "price": "9.03",
+      "change": "0.03",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "EVF",
+      "price": "9.22",
+      "change": "-0.08",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "EVG",
+      "price": "5.93",
+      "change": "-0.02",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FCM",
+      "price": "3.90",
+      "change": "0.10",
+      "percentChange": "2.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FCN",
+      "price": "14.50",
+      "change": "0.25",
+      "percentChange": "1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FDC**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FIR",
+      "price": "8.00",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FIT",
+      "price": "4.22",
+      "change": "-0.05",
+      "percentChange": "-1.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FMC",
+      "price": "35.60",
+      "change": "0.10",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FPT",
+      "price": "112.40",
+      "change": "0.40",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FRT",
+      "price": "163.00",
+      "change": "-5.10",
+      "percentChange": "-3.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FTS",
+      "price": "36.65",
+      "change": "-0.20",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUCTVGF3",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUCTVGF4",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUCTVGF5",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUCVREIT",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEABVND",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEBFVND",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEDCMID",
+      "price": "10.75",
+      "change": "0.10",
+      "percentChange": "0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEFCV50",
+      "price": "11.09",
+      "change": "-0.26",
+      "percentChange": "-2.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEIP100",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEKIV30",
+      "price": "8.76",
+      "change": "0.03",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEKIVFS",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEKIVND",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEMAV30",
+      "price": "15.78",
+      "change": "0.04",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEMAVND",
+      "price": "12.37",
+      "change": "0.01",
+      "percentChange": "0.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUESSV30",
+      "price": "16.10",
+      "change": "-0.05",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUESSV50",
+      "price": "19.48",
+      "change": "0.27",
+      "percentChange": "1.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUESSVFL",
+      "price": "21.68",
+      "change": "-0.09",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUETCC50",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEVFVND",
+      "price": "29.08",
+      "change": "0.35",
+      "percentChange": "1.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "FUEVN100",
+      "price": "17.18",
+      "change": "0.08",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GAS",
+      "price": "58.50",
+      "change": "1.00",
+      "percentChange": "1.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GDT",
+      "price": "20.40",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GEE",
+      "price": "90.20",
+      "change": "5.70",
+      "percentChange": "6.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GEG",
+      "price": "14.05",
+      "change": "-0.10",
+      "percentChange": "-0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GEX*",
+      "price": "26.55",
+      "change": "0.25",
+      "percentChange": "1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GIL",
+      "price": "15.20",
+      "change": "-0.10",
+      "percentChange": "-0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GMD",
+      "price": "51.00",
+      "change": "2.00",
+      "percentChange": "4.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GMH",
+      "price": "7.99",
+      "change": "0.34",
+      "percentChange": "4.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GSP",
+      "price": "11.80",
+      "change": "0.10",
+      "percentChange": "0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GTA",
+      "price": "9.46",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "GVR",
+      "price": "23.80",
+      "change": "0.25",
+      "percentChange": "1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HAG**",
+      "price": "12.45",
+      "change": "0.20",
+      "percentChange": "1.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HAH",
+      "price": "60.50",
+      "change": "0.90",
+      "percentChange": "1.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HAP",
+      "price": "5.04",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HAR",
+      "price": "3.11",
+      "change": "0.01",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HAS**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HAX",
+      "price": "14.90",
+      "change": "0.25",
+      "percentChange": "1.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HCD",
+      "price": "6.90",
+      "change": "-0.09",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HCM",
+      "price": "24.85",
+      "change": "0.05",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HDB",
+      "price": "21.25",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HDC",
+      "price": "21.55",
+      "change": "-0.35",
+      "percentChange": "-1.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HDG",
+      "price": "23.25",
+      "change": "0.25",
+      "percentChange": "1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HHP",
+      "price": "8.50",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HHS",
+      "price": "11.00",
+      "change": "-0.30",
+      "percentChange": "-2.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HHV",
+      "price": "11.90",
+      "change": "-0.05",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HID",
+      "price": "2.60",
+      "change": "0.01",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HII",
+      "price": "4.14",
+      "change": "-0.01",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HMC",
+      "price": "11.50",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HNA",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HPG",
+      "price": "25.70",
+      "change": "0.10",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HPX",
+      "price": "4.11",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HQC",
+      "price": "2.93",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HRC",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HSG",
+      "price": "13.35",
+      "change": "-0.15",
+      "percentChange": "-1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HSL",
+      "price": "3.75",
+      "change": "0.03",
+      "percentChange": "0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HT1",
+      "price": "10.90",
+      "change": "0.15",
+      "percentChange": "1.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HTG",
+      "price": "37.75",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HTI",
+      "price": "18.75",
+      "change": "0.05",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HTL",
+      "price": "27.90",
+      "change": "0.40",
+      "percentChange": "1.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HTN",
+      "price": "8.81",
+      "change": "0.01",
+      "percentChange": "0.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HTV",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HU1",
+      "price": "5.84",
+      "change": "-0.43",
+      "percentChange": "-6.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HUB",
+      "price": "16.60",
+      "change": "-0.10",
+      "percentChange": "-0.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HVH",
+      "price": "13.65",
+      "change": "-0.20",
+      "percentChange": "-1.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HVN**",
+      "price": "30.75",
+      "change": "-0.50",
+      "percentChange": "-1.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "HVX**",
+      "price": "2.69",
+      "change": "0.12",
+      "percentChange": "4.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ICT",
+      "price": "13.25",
+      "change": "0.15",
+      "percentChange": "1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "IDI",
+      "price": "5.99",
+      "change": "0.09",
+      "percentChange": "1.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "IJC",
+      "price": "11.60",
+      "change": "0.05",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ILB",
+      "price": "27.65",
+      "change": "-0.25",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "IMP",
+      "price": "42.80",
+      "change": "-0.80",
+      "percentChange": "-1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ITC",
+      "price": "10.05",
+      "change": "-0.05",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ITD",
+      "price": "11.90",
+      "change": "-0.10",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "JVC**",
+      "price": "4.19",
+      "change": "-0.08",
+      "percentChange": "-1.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KBC",
+      "price": "22.80",
+      "change": "0.05",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KDC",
+      "price": "57.00",
+      "change": "0.10",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KDH",
+      "price": "27.20",
+      "change": "0.10",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KHG",
+      "price": "5.20",
+      "change": "-0.02",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KHP",
+      "price": "9.89",
+      "change": "-0.02",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KMR",
+      "price": "2.99",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KOS",
+      "price": "38.65",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KPF**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "KSB",
+      "price": "15.15",
+      "change": "0.15",
+      "percentChange": "1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "L10",
+      "price": "21.35",
+      "change": "-1.60",
+      "percentChange": "-7.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LAF",
+      "price": "16.75",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LBM",
+      "price": "29.05",
+      "change": "0.05",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LCG",
+      "price": "9.24",
+      "change": "0.06",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LDG**",
+      "price": "1.85",
+      "change": "0.01",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LEC**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LGC",
+      "price": "52.20",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LGL",
+      "price": "3.04",
+      "change": "-0.15",
+      "percentChange": "-4.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LHG",
+      "price": "27.60",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LIX",
+      "price": "28.95",
+      "change": "-0.35",
+      "percentChange": "-1.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LM8",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LPB",
+      "price": "32.30",
+      "change": "-0.70",
+      "percentChange": "-2.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "LSS",
+      "price": "9.58",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MBB",
+      "price": "23.55",
+      "change": "0.30",
+      "percentChange": "1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MCM",
+      "price": "27.85",
+      "change": "0.15",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MCP",
+      "price": "30.00",
+      "change": "0.20",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MDG**",
+      "price": "13.60",
+      "change": "0.80",
+      "percentChange": "6.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MHC",
+      "price": "8.49",
+      "change": "0.04",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MIG",
+      "price": "16.10",
+      "change": "-0.10",
+      "percentChange": "-0.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MSB",
+      "price": "11.30",
+      "change": "-0.05",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MSH",
+      "price": "42.55",
+      "change": "-0.05",
+      "percentChange": "-0.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MSN",
+      "price": "62.00",
+      "change": "2.10",
+      "percentChange": "3.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "MWG",
+      "price": "60.50",
+      "change": "0.80",
+      "percentChange": "1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NAB",
+      "price": "16.60",
+      "change": "0.30",
+      "percentChange": "1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NAF",
+      "price": "20.85",
+      "change": "0.15",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NAV",
+      "price": "17.45",
+      "change": "-0.05",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NBB",
+      "price": "22.30",
+      "change": "1.35",
+      "percentChange": "6.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NCT",
+      "price": "101.00",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NHA",
+      "price": "19.95",
+      "change": "-0.15",
+      "percentChange": "-0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NHH",
+      "price": "11.15",
+      "change": "-0.10",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NHT",
+      "price": "11.20",
+      "change": "0.30",
+      "percentChange": "2.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NKG",
+      "price": "11.95",
+      "change": "0.05",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NLG",
+      "price": "28.00",
+      "change": "0.05",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NNC",
+      "price": "30.95",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NO1",
+      "price": "7.04",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NSC",
+      "price": "85.50",
+      "change": "1.60",
+      "percentChange": "1.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NT2",
+      "price": "17.40",
+      "change": "0.10",
+      "percentChange": "0.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NTL",
+      "price": "14.55",
+      "change": "-0.25",
+      "percentChange": "-1.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NVL",
+      "price": "10.85",
+      "change": "-0.45",
+      "percentChange": "-4.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "NVT**",
+      "price": "8.19",
+      "change": "0.29",
+      "percentChange": "3.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "OCB",
+      "price": "10.30",
+      "change": "-0.20",
+      "percentChange": "-1.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "OGC**",
+      "price": "3.99",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "OPC",
+      "price": "22.50",
+      "change": "-0.30",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ORS**",
+      "price": "8.34",
+      "change": "0.54",
+      "percentChange": "6.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PAC",
+      "price": "30.60",
+      "change": "0.25",
+      "percentChange": "0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PAN",
+      "price": "22.85",
+      "change": "0.10",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PC1",
+      "price": "20.80",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PDN",
+      "price": "123.50",
+      "change": "0.50",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PDR",
+      "price": "15.70",
+      "change": "-0.20",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PET",
+      "price": "18.40",
+      "change": "-0.10",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PGC",
+      "price": "14.40",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PGD",
+      "price": "28.80",
+      "change": "-0.20",
+      "percentChange": "-0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PGI",
+      "price": "23.65",
+      "change": "1.45",
+      "percentChange": "6.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PGV",
+      "price": "19.00",
+      "change": "0.30",
+      "percentChange": "1.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PHC",
+      "price": "5.10",
+      "change": "0.12",
+      "percentChange": "2.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PHR",
+      "price": "43.05",
+      "change": "0.15",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PIT**",
+      "price": "6.70",
+      "change": "0.25",
+      "percentChange": "3.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PJT",
+      "price": "10.50",
+      "change": "0.45",
+      "percentChange": "4.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PLP",
+      "price": "4.11",
+      "change": "-0.01",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PLX",
+      "price": "34.25",
+      "change": "0.60",
+      "percentChange": "1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PMG**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PNC",
+      "price": "18.80",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PNJ",
+      "price": "70.10",
+      "change": "-0.90",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "POW",
+      "price": "11.90",
+      "change": "-0.10",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PPC",
+      "price": "11.50",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PSH**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PTB",
+      "price": "48.60",
+      "change": "-1.00",
+      "percentChange": "-2.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PTC",
+      "price": "5.78",
+      "change": "0.10",
+      "percentChange": "1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PTL**",
+      "price": "2.31",
+      "change": "0.02",
+      "percentChange": "0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PVD",
+      "price": "17.75",
+      "change": "-0.05",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PVP",
+      "price": "13.70",
+      "change": "0.10",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "PVT",
+      "price": "20.80",
+      "change": "0.10",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "QCG",
+      "price": "10.25",
+      "change": "-0.05",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "QNP",
+      "price": "33.00",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "RAL",
+      "price": "114.50",
+      "change": "-1.00",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "REE",
+      "price": "69.90",
+      "change": "1.50",
+      "percentChange": "2.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "RYG",
+      "price": "12.70",
+      "change": "0.30",
+      "percentChange": "2.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "S4A",
+      "price": "36.00",
+      "change": "-0.50",
+      "percentChange": "-1.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SAB",
+      "price": "49.50",
+      "change": "0.30",
+      "percentChange": "0.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SAM",
+      "price": "6.23",
+      "change": "-0.03",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SAV",
+      "price": "15.70",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SBA",
+      "price": "29.95",
+      "change": "-0.05",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SBG",
+      "price": "12.75",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SBT",
+      "price": "16.95",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SBV",
+      "price": "8.50",
+      "change": "0.48",
+      "percentChange": "6.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SC5",
+      "price": "17.90",
+      "change": "0.85",
+      "percentChange": "5.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SCR",
+      "price": "5.65",
+      "change": "-0.03",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SCS",
+      "price": "58.50",
+      "change": "-0.10",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SFC",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SFG",
+      "price": "10.80",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SFI",
+      "price": "27.00",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SGN",
+      "price": "63.00",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SGR",
+      "price": "26.05",
+      "change": "0.25",
+      "percentChange": "1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SGT",
+      "price": "16.40",
+      "change": "0.40",
+      "percentChange": "2.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SHA",
+      "price": "4.09",
+      "change": "0.10",
+      "percentChange": "2.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SHB",
+      "price": "12.80",
+      "change": "-0.10",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SHI",
+      "price": "14.50",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SHP",
+      "price": "35.50",
+      "change": "-0.10",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SIP",
+      "price": "61.60",
+      "change": "-0.60",
+      "percentChange": "-1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SJD",
+      "price": "14.20",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SJS",
+      "price": "86.80",
+      "change": "0.90",
+      "percentChange": "1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SKG",
+      "price": "10.10",
+      "change": "0.10",
+      "percentChange": "1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SMA",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SMB",
+      "price": "41.10",
+      "change": "-0.10",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SMC**",
+      "price": "9.00",
+      "change": "0.42",
+      "percentChange": "4.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SPM",
+      "price": "11.55",
+      "change": "-0.10",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SRC",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SRF**",
+      "price": "9.30",
+      "change": "-0.35",
+      "percentChange": "-3.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SSB",
+      "price": "18.10",
+      "change": "-0.50",
+      "percentChange": "-2.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SSC",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SSI",
+      "price": "22.80",
+      "change": "-0.20",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "ST8",
+      "price": "6.61",
+      "change": "0.16",
+      "percentChange": "2.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "STB",
+      "price": "39.15",
+      "change": "-1.05",
+      "percentChange": "-2.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "STG",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "STK",
+      "price": "22.90",
+      "change": "0.30",
+      "percentChange": "1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SVC",
+      "price": "19.50",
+      "change": "-0.40",
+      "percentChange": "-2.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SVD**",
+      "price": "3.11",
+      "change": "-0.06",
+      "percentChange": "-1.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SVI",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SVT",
+      "price": "12.40",
+      "change": "-0.05",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SZC",
+      "price": "30.00",
+      "change": "-0.35",
+      "percentChange": "-1.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "SZL",
+      "price": "38.80",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TBC",
+      "price": "39.80",
+      "change": "0.30",
+      "percentChange": "0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCB",
+      "price": "25.95",
+      "change": "0.20",
+      "percentChange": "0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCD",
+      "price": "1.90",
+      "change": "0.01",
+      "percentChange": "0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCH",
+      "price": "17.65",
+      "change": "-0.05",
+      "percentChange": "-0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCI",
+      "price": "8.05",
+      "change": "0.07",
+      "percentChange": "0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCL",
+      "price": "32.00",
+      "change": "-0.65",
+      "percentChange": "-2.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCM",
+      "price": "29.20",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCO",
+      "price": "11.20",
+      "change": "0.35",
+      "percentChange": "3.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCR**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TCT",
+      "price": "16.85",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TDC",
+      "price": "10.20",
+      "change": "-0.05",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TDG",
+      "price": "3.33",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TDH**",
+      "price": "3.79",
+      "change": "0.24",
+      "percentChange": "6.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TDM",
+      "price": "52.60",
+      "change": "0.10",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TDP",
+      "price": "34.50",
+      "change": "1.15",
+      "percentChange": "3.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TDW",
+      "price": "59.60",
+      "change": "-4.40",
+      "percentChange": "-6.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TEG",
+      "price": "5.08",
+      "change": "-0.02",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "THG",
+      "price": "52.40",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TIP",
+      "price": "17.80",
+      "change": "-0.20",
+      "percentChange": "-1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TIX",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TLD",
+      "price": "6.15",
+      "change": "0.02",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TLG",
+      "price": "48.50",
+      "change": "0.50",
+      "percentChange": "1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TLH**",
+      "price": "5.22",
+      "change": "-0.02",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TMP",
+      "price": "66.10",
+      "change": "-0.50",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TMS",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TMT**",
+      "price": "11.80",
+      "change": "-0.05",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TN1",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TNC",
+      "price": "29.50",
+      "change": "-0.20",
+      "percentChange": "-0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TNH",
+      "price": "17.90",
+      "change": "0.05",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TNI**",
+      "price": "1.91",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TNT",
+      "price": "4.69",
+      "change": "0.08",
+      "percentChange": "1.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TPB",
+      "price": "13.40",
+      "change": "-0.05",
+      "percentChange": "-0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TPC**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TRA",
+      "price": "75.50",
+      "change": "0.50",
+      "percentChange": "0.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TRC",
+      "price": "64.50",
+      "change": "-1.30",
+      "percentChange": "-2.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TSC",
+      "price": "2.81",
+      "change": "-0.06",
+      "percentChange": "-2.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TTA",
+      "price": "9.81",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TTE**",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TTF**",
+      "price": "2.46",
+      "change": "0.04",
+      "percentChange": "1.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TV2",
+      "price": "30.95",
+      "change": "-0.05",
+      "percentChange": "-0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TVB**",
+      "price": "6.85",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TVS",
+      "price": "16.70",
+      "change": "0.05",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TVT",
+      "price": "15.50",
+      "change": "0.50",
+      "percentChange": "3.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "TYA",
+      "price": "14.70",
+      "change": "0.95",
+      "percentChange": "6.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "UIC",
+      "price": "37.30",
+      "change": "0.40",
+      "percentChange": "1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VAF**",
+      "price": "20.80",
+      "change": "1.35",
+      "percentChange": "6.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VCA",
+      "price": "9.89",
+      "change": "0.04",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VCB",
+      "price": "57.50",
+      "change": "-0.70",
+      "percentChange": "-1.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VCF",
+      "price": "278.90",
+      "change": "7.80",
+      "percentChange": "2.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VCG",
+      "price": "21.55",
+      "change": "0.05",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VCI",
+      "price": "36.35",
+      "change": "-0.40",
+      "percentChange": "-1.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VDP",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VDS",
+      "price": "14.20",
+      "change": "0.05",
+      "percentChange": "0.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VFG",
+      "price": "67.20",
+      "change": "1.20",
+      "percentChange": "1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VGC",
+      "price": "39.65",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VHC",
+      "price": "49.70",
+      "change": "1.55",
+      "percentChange": "3.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VHM",
+      "price": "62.30",
+      "change": "1.10",
+      "percentChange": "1.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VIB",
+      "price": "17.35",
+      "change": "-0.30",
+      "percentChange": "-1.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VIC",
+      "price": "67.00",
+      "change": "4.30",
+      "percentChange": "6.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VID",
+      "price": "5.05",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VIP",
+      "price": "12.65",
+      "change": "-0.10",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VIX",
+      "price": "12.00",
+      "change": "-0.10",
+      "percentChange": "-0.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VJC",
+      "price": "91.00",
+      "change": "5.30",
+      "percentChange": "6.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VMD",
+      "price": "16.05",
+      "change": "-0.25",
+      "percentChange": "-1.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VND",
+      "price": "14.70",
+      "change": "-0.20",
+      "percentChange": "-1.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VNE**",
+      "price": "3.10",
+      "change": "-0.10",
+      "percentChange": "-3.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VNG",
+      "price": "7.83",
+      "change": "0.02",
+      "percentChange": "0.3%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VNL",
+      "price": "19.50",
+      "change": "-0.50",
+      "percentChange": "-2.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VNM",
+      "price": "58.30",
+      "change": "2.00",
+      "percentChange": "3.6%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VNS",
+      "price": "10.25",
+      "change": "-0.05",
+      "percentChange": "-0.5%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VOS",
+      "price": "13.80",
+      "change": "-0.20",
+      "percentChange": "-1.4%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VPB",
+      "price": "16.50",
+      "change": "-0.15",
+      "percentChange": "-0.9%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VPD",
+      "price": "25.00",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VPG",
+      "price": "11.25",
+      "change": "0.40",
+      "percentChange": "3.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VPH",
+      "price": "5.48",
+      "change": "0.01",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VPI",
+      "price": "53.90",
+      "change": "0.10",
+      "percentChange": "0.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VPS",
+      "price": "9.28",
+      "change": "-0.01",
+      "percentChange": "-0.1%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VRC",
+      "price": "12.10",
+      "change": "-0.50",
+      "percentChange": "-4.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VRE",
+      "price": "22.80",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VSC",
+      "price": "20.50",
+      "change": "0.55",
+      "percentChange": "2.8%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VSH",
+      "price": "52.90",
+      "change": "0.90",
+      "percentChange": "1.7%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VSI",
+      "price": "",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VTB",
+      "price": "9.89",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VTO",
+      "price": "12.80",
+      "change": "0.15",
+      "percentChange": "1.2%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "VTP",
+      "price": "109.10",
+      "change": "1.10",
+      "percentChange": "1.0%",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "YBM",
+      "price": "14.70",
+      "change": "",
+      "percentChange": "",
+      "timestamp": "5:08:23 PM"
+    },
+    {
+      "code": "YEG",
+      "price": "11.55",
+      "change": "0.10",
+      "percentChange": "0.9%",
+      "timestamp": "5:08:23 PM"
+    }
+  ]
+}
