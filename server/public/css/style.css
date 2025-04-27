@@ -1,0 +1,295 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+input {
+  padding: 8px;
+  width: 200px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.action-button {
+  padding: 8px 16px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-button {
+  margin-right: 10px;
+}
+
+.action-button:hover {
+  background-color: #0b7dda;
+}
+
+.action-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.error {
+  color: #e74c3c;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #fadbd8;
+  border-radius: 4px;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+.positive {
+  color: green;
+}
+
+.positive {
+  color: #27ae60;
+}
+
+.negative {
+  color: red;
+}
+
+.negative {
+  color: #e74c3c;
+}
+
+.stock-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.stock-tag {
+  background-color: #ecf0f1;
+  padding: 5px 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.remove-stock {
+  margin-left: 5px;
+  color: #e74c3c;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  border-bottom: 2px solid #3498db;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#refreshButton {
+  background-color: #ff9800;
+}
+
+#refreshButton:hover {
+  background-color: #e68a00;
+}
+
+#startButton {
+  background-color: #4CAF50;
+}
+
+#startButton:hover {
+  background-color: #45a049;
+}
+
+#stopButton {
+  background-color: #f44336;
+}
+
+#stopButton:hover {
+  background-color: #d32f2f;
+}
+
+#status-message {
+  color: #666;
+  font-size: 14px;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.stock-badge {
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-header {
+  font-weight: bold;
+}
+
+.table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#refreshCountdown {
+  min-width: 28px;
+  text-align: center;
+}
+
+#stockList {
+  min-height: 60px;
+}
+
+.btn-close {
+  font-size: 0.65rem;
+  padding: 2px;
+}
+
+.badge {
+  font-weight: normal;
+}
+
+.input-group {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+#statusMessage {
+  transition: all 0.3s ease;
+}

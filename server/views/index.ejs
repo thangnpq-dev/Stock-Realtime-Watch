@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theo dõi Cổ phiếu Thời gian thực</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="container-fluid py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="card shadow">
+          <div class="card-header bg-primary text-white">
+            <h2 class="mb-0"><i class="fas fa-chart-line me-2"></i>Theo dõi Cổ phiếu Thời gian thực</h2>
+          </div>
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <input type="text" id="stockCodeInput" class="form-control" placeholder="Nhập mã cổ phiếu (VD: VNM, FPT)" aria-label="Mã cổ phiếu">
+                  <button class="btn btn-success" type="button" id="addStockBtn"><i class="fas fa-plus me-1"></i>Thêm</button>
+                </div>
+                <div class="alert alert-info small">
+                  <i class="fas fa-info-circle me-1"></i>Nhập mã cổ phiếu và nhấn Enter hoặc nút Thêm để theo dõi
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card bg-light">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-list me-2"></i>Danh sách theo dõi</h5>
+                    <button class="btn btn-sm btn-outline-danger" id="clearAllBtn"><i class="fas fa-trash me-1"></i>Xóa tất cả</button>
+                  </div>
+                  <div class="card-body p-2">
+                    <div id="stockList" class="d-flex flex-wrap gap-2">
+                      <!-- Danh sách mã cổ phiếu sẽ được hiển thị ở đây -->
+                      <div class="alert alert-secondary w-100 text-center mb-0" id="emptyStockList">
+                        Chưa có mã cổ phiếu nào được thêm
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="stock-data-container mt-3">
+              <div class="card">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0"><i class="fas fa-table me-2"></i>Dữ liệu Cổ phiếu</h5>
+                  <div>
+                    <span class="badge bg-info" id="lastUpdated">Đang tải...</span>
+                    <span class="badge bg-success ms-2" id="refreshCountdown">5</span>
+                    <div class="form-check form-switch d-inline-block ms-2">
+                      <input class="form-check-input" type="checkbox" id="socketToggle" checked>
+                      <label class="form-check-label text-white" for="socketToggle">Tự động làm mới</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-hover mb-0">
+                      <thead class="table-dark">
+                        <tr>
+                          <th>Mã CP</th>
+                          <th>Giá hiện tại</th>
+                          <th>Thay đổi</th>
+                          <th>% Thay đổi</th>
+                          <th>Thời gian</th>
+                          <th>Trạng thái</th>
+                        </tr>
+                      </thead>
+                      <tbody id="stockDataTableBody">
+                        <!-- Dữ liệu cổ phiếu sẽ được hiển thị ở đây -->
+                        <tr>
+                          <td colspan="6" class="text-center">Chưa có dữ liệu</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="alert alert-warning mt-3" id="statusMessage" style="display: none;">
+              <i class="fas fa-exclamation-triangle me-2"></i><span id="statusText"></span>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            <div class="d-flex justify-content-between align-items-center">
+              <small>Dữ liệu được cập nhật mỗi 5 giây</small>
+              <div>
+                <button class="btn btn-sm btn-primary" id="manualRefreshBtn"><i class="fas fa-sync-alt me-1"></i>Làm mới</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Khai báo biến socket toàn cục
+      let socket;
+      
+      // Hàm khởi tạo Socket.io - chỉ gọi khi cần
+      function initializeSocket() {
+        // Nếu socket đã tồn tại và đang kết nối, không tạo mới
+        if (socket && socket.connected) return socket;
+        
+        // Đóng kết nối cũ nếu có
+        if (socket) {
+          socket.disconnect();
+          socket.off(); // Xóa tất cả listeners
+        }
+        
+        // Tạo kết nối mới
+        socket = io({forceNew: true});
+        
+        // Xử lý sự kiện kết nối
+        socket.on('connect', function() {
+          console.log('Socket connected:', socket.id);
+          if (stockCodes.length > 0) {
+            socket.emit('watch-stocks', stockCodes);
+          }
+        });
+        
+        // Xử lý sự kiện nhận dữ liệu
+        socket.on('stock-data', function(data) {
+          updateStockTable(data);
+          lastUpdated.textContent = `Cập nhật: ${new Date().toLocaleTimeString()}`;
+        });
+        
+        // Xử lý lỗi
+        socket.on('error', function(error) {
+          console.error('Socket error:', error);
+          showStatus('Lỗi kết nối: ' + error.message, 'danger');
+        });
+        
+        // Xử lý ngắt kết nối
+        socket.on('disconnect', function() {
+          console.log('Socket disconnected');
+        });
+        
+        return socket;
+      }
+      
+      // DOM Elements
+      const stockCodeInput = document.getElementById('stockCodeInput');
+      const addStockBtn = document.getElementById('addStockBtn');
+      const stockList = document.getElementById('stockList');
+      const emptyStockList = document.getElementById('emptyStockList');
+      const stockDataTableBody = document.getElementById('stockDataTableBody');
+      const statusMessage = document.getElementById('statusMessage');
+      const statusText = document.getElementById('statusText');
+      const lastUpdated = document.getElementById('lastUpdated');
+      const refreshCountdown = document.getElementById('refreshCountdown');
+      const manualRefreshBtn = document.getElementById('manualRefreshBtn');
+      const clearAllBtn = document.getElementById('clearAllBtn');
+      const socketToggle = document.getElementById('socketToggle');
+      
+      // Biến toàn cục
+      let stockCodes = [];
+      let countdownTimer;
+      let countdown = 5;
+      let socketConnected = true;
+      
+      // Khởi tạo - Lấy dữ liệu từ localStorage nếu có
+      function initializeStockList() {
+        const savedStocks = localStorage.getItem('stockCodes');
+        if (savedStocks) {
+          stockCodes = JSON.parse(savedStocks);
+          renderStockList();
+          if (stockCodes.length > 0) {
+            fetchStockData();
+            startCountdown();
+          } else {
+            lastUpdated.textContent = 'Chưa có dữ liệu';
+          }
+        } else {
+          lastUpdated.textContent = 'Chưa có dữ liệu';
+        }
+        
+        // Khởi tạo Socket.IO chỉ khi cần
+        if (socketConnected && stockCodes.length > 0) {
+          initializeSocket();
+        }
+      }
+      
+      // Lưu mã cổ phiếu vào localStorage
+      function saveStockCodes() {
+        localStorage.setItem('stockCodes', JSON.stringify(stockCodes));
+      }
+      
+      // Thêm mã cổ phiếu mới
+      function addStockCode(code) {
+        code = code.trim().toUpperCase();
+        if (!code) return;
+        
+        // Kiểm tra mã đã tồn tại chưa
+        if (!stockCodes.includes(code)) {
+          stockCodes.push(code);
+          saveStockCodes();
+          renderStockList();
+          
+          // Nếu là mã đầu tiên, bắt đầu polling
+          if (stockCodes.length === 1) {
+            fetchStockData();
+            startCountdown();
+          }
+          
+          // Thông báo
+          showStatus(`Đã thêm mã ${code} vào danh sách theo dõi`, 'success');
+        } else {
+          showStatus(`Mã ${code} đã tồn tại trong danh sách`, 'warning');
+        }
+        
+        stockCodeInput.value = '';
+        stockCodeInput.focus();
+      }
+      
+      // Xóa mã cổ phiếu
+      function removeStockCode(code) {
+        const index = stockCodes.indexOf(code);
+        if (index > -1) {
+          stockCodes.splice(index, 1);
+          saveStockCodes();
+          renderStockList();
+          
+          // Cập nhật bảng dữ liệu
+          removeStockFromTable(code);
+          
+          // Nếu không còn mã nào, dừng countdown
+          if (stockCodes.length === 0) {
+            stopCountdown();
+            stockDataTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có dữ liệu</td></tr>';
+          }
+          
+          showStatus(`Đã xóa mã ${code} khỏi danh sách theo dõi`, 'info');
+        }
+      }
+      
+      // Xóa mã khỏi bảng dữ liệu
+      function removeStockFromTable(code) {
+        const rows = stockDataTableBody.querySelectorAll('tr');
+        rows.forEach(row => {
+          const codeCell = row.querySelector('td:first-child');
+          if (codeCell && codeCell.textContent === code) {
+            row.remove();
+          }
+        });
+      }
+      
+      // Hiển thị danh sách mã cổ phiếu
+      function renderStockList() {
+        if (stockCodes.length === 0) {
+          emptyStockList.style.display = 'block';
+          stockList.innerHTML = '';
+          stockList.appendChild(emptyStockList);
+          return;
+        }
+        
+        emptyStockList.style.display = 'none';
+        
+        let stockListHTML = '';
+        stockCodes.forEach(code => {
+          stockListHTML += `
+            <div class="badge bg-secondary p-2 d-flex align-items-center stock-badge">
+              <span class="me-1">${code}</span>
+              <button class="btn-close btn-close-white ms-1 remove-stock" data-code="${code}" aria-label="Close"></button>
+            </div>
+          `;
+        });
+        
+        stockList.innerHTML = stockListHTML;
+        
+        // Thêm sự kiện cho nút xóa
+        document.querySelectorAll('.remove-stock').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const code = this.getAttribute('data-code');
+            removeStockCode(code);
+          });
+        });
+      }
+      
+      // Hiển thị thông báo
+      function showStatus(message, type = 'info') {
+        statusText.textContent = message;
+        statusMessage.style.display = 'block';
+        
+        // Đặt class cho alert dựa trên loại thông báo
+        statusMessage.className = 'alert mt-3';
+        switch(type) {
+          case 'success':
+            statusMessage.classList.add('alert-success');
+            break;
+          case 'warning':
+            statusMessage.classList.add('alert-warning');
+            break;
+          case 'error':
+            statusMessage.classList.add('alert-danger');
+            break;
+          default:
+            statusMessage.classList.add('alert-info');
+        }
+        
+        // Tự động ẩn sau 3 giây
+        setTimeout(() => {
+          statusMessage.style.display = 'none';
+        }, 3000);
+      }
+      
+      // Bắt đầu đếm ngược
+      function startCountdown() {
+        stopCountdown(); // Clear any existing timer
+        countdown = 5;
+        refreshCountdown.textContent = countdown;
+        
+        if (socketConnected) {
+          countdownTimer = setInterval(function() {
+            countdown--;
+            refreshCountdown.textContent = countdown;
+            
+            if (countdown <= 0) {
+              fetchStockData();
+              countdown = 5;
+              refreshCountdown.textContent = countdown;
+            }
+          }, 1000);
+        }
+      }
+      
+      // Dừng đếm ngược
+      function stopCountdown() {
+        if (countdownTimer) {
+          clearInterval(countdownTimer);
+          countdownTimer = null;
+        }
+      }
+      
+      // Fetch dữ liệu cổ phiếu
+      function fetchStockData() {
+        if (stockCodes.length === 0) {
+          lastUpdated.textContent = 'Chưa có dữ liệu';
+          return;
+        }
+        
+        lastUpdated.textContent = 'Đang cập nhật...';
+        
+        // Nếu socket đã kết nối, sử dụng socket
+        if (socketConnected) {
+          initializeSocket().emit('watch-stocks', stockCodes);
+        } else {
+          // Nếu không, sử dụng REST API
+          fetch('/api/stock-data', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ stockCodes })
+          })
+          .then(response => response.json())
+          .then(data => {
+            updateStockTable(data);
+            lastUpdated.textContent = `Cập nhật: ${new Date().toLocaleTimeString()}`;
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+            showStatus('Có lỗi khi lấy dữ liệu cổ phiếu', 'danger');
+            lastUpdated.textContent = 'Lỗi cập nhật';
+          });
+        }
+      }
+      
+      // Cập nhật bảng dữ liệu cổ phiếu
+      function updateStockTable(data) {
+        // Kiểm tra dữ liệu hợp lệ
+        if (!data) {
+          stockDataTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có dữ liệu</td></tr>';
+          return;
+        }
+        
+        // Kiểm tra trạng thái dữ liệu
+        if (data.status === 'no_data' || data.status === 'error') {
+          // Hiển thị thông báo khi không có dữ liệu hoặc có lỗi
+          const messageType = data.status === 'no_data' ? 'warning' : 'danger';
+          stockDataTableBody.innerHTML = `<tr><td colspan="6" class="text-center">
+            <div class="alert alert-${messageType} mb-0">
+              <i class="fas fa-${data.status === 'no_data' ? 'info-circle' : 'exclamation-triangle'} me-2"></i>
+              ${data.message || 'Không có dữ liệu'}
+            </div>
+          </td></tr>`;
+          
+          if (data.status === 'no_data') {
+            lastUpdated.textContent = 'Chưa có dữ liệu';
+          } else {
+            lastUpdated.textContent = 'Lỗi dữ liệu';
+          }
+          return;
+        }
+        
+        // Kiểm tra cấu trúc dữ liệu
+        if (data.data && Array.isArray(data.data)) {
+          // Trường hợp dữ liệu có cấu trúc { data: [...] }
+          if (data.data.length === 0) {
+            stockDataTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có dữ liệu</td></tr>';
+            return;
+          }
+          
+          // Hiển thị cảnh báo nếu có
+          if (data.warning) {
+            showStatus(data.warning, 'warning');
+          }
+          
+          let tableHTML = '';
+          data.data.forEach(stock => {
+            const changeClass = stock.change === 'N/A' ? '' : 
+                              parseFloat(stock.change) > 0 ? 'text-success' : 
+                              parseFloat(stock.change) < 0 ? 'text-danger' : 'text-secondary';
+            
+            tableHTML += `
+              <tr>
+                <td class="fw-bold">${stock.code}</td>
+                <td>${stock.price}</td>
+                <td class="${changeClass}">${stock.change}</td>
+                <td class="${changeClass}">${stock.percentChange}</td>
+                <td>${stock.timestamp}</td>
+                <td>${stock.error ? `<span class="badge bg-danger">${stock.error}</span>` : '<span class="badge bg-success">OK</span>'}</td>
+              </tr>
+            `;
+          });
+          
+          stockDataTableBody.innerHTML = tableHTML;
+        } else if (Array.isArray(data)) {
+          // Trường hợp dữ liệu là mảng trực tiếp
+          if (data.length === 0) {
+            stockDataTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có dữ liệu</td></tr>';
+            return;
+          }
+          
+          let tableHTML = '';
+          data.forEach(stock => {
+            const changeClass = stock.change === 'N/A' ? '' : 
+                              parseFloat(stock.change) > 0 ? 'text-success' : 
+                              parseFloat(stock.change) < 0 ? 'text-danger' : 'text-secondary';
+            
+            tableHTML += `
+              <tr>
+                <td class="fw-bold">${stock.code}</td>
+                <td>${stock.price}</td>
+                <td class="${changeClass}">${stock.change}</td>
+                <td class="${changeClass}">${stock.percentChange}</td>
+                <td>${stock.timestamp}</td>
+                <td>${stock.error ? `<span class="badge bg-danger">${stock.error}</span>` : '<span class="badge bg-success">OK</span>'}</td>
+              </tr>
+            `;
+          });
+          
+          stockDataTableBody.innerHTML = tableHTML;
+        } else {
+          // Trường hợp dữ liệu không hợp lệ
+          console.error('Unexpected data structure:', data);
+          stockDataTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Lỗi cấu trúc dữ liệu</td></tr>';
+          showStatus('Cấu trúc dữ liệu không hợp lệ', 'warning');
+        }
+      }
+      
+      // Event Listeners
+      addStockBtn.addEventListener('click', function() {
+        addStockCode(stockCodeInput.value);
+      });
+      
+      stockCodeInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          addStockCode(this.value);
+        }
+      });
+      
+      manualRefreshBtn.addEventListener('click', function() {
+        fetchStockData();
+        showStatus('Đã cập nhật dữ liệu thủ công', 'info');
+      });
+      
+      clearAllBtn.addEventListener('click', function() {
+        if (stockCodes.length === 0) return;
+        
+        if (confirm('Bạn có chắc muốn xóa tất cả mã cổ phiếu?')) {
+          stockCodes = [];
+          saveStockCodes();
+          renderStockList();
+          stopCountdown();
+          stockDataTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Chưa có dữ liệu</td></tr>';
+          showStatus('Đã xóa tất cả mã cổ phiếu', 'info');
+        }
+      });
+      
+      socketToggle.addEventListener('change', function() {
+        socketConnected = this.checked;
+        
+        if (socketConnected) {
+          // Kết nối lại socket
+          initializeSocket();
+          startCountdown();
+          showStatus('Đã bật chế độ tự động cập nhật dữ liệu', 'success');
+        } else {
+          // Ngắt kết nối socket
+          if (socket) {
+            socket.disconnect();
+          }
+          stopCountdown();
+          showStatus('Đã tắt chế độ tự động cập nhật dữ liệu. Sử dụng nút "Làm mới" để cập nhật thủ công.', 'warning');
+        }
+        
+        // Chuyển đổi hiển thị đồng hồ đếm ngược, không hiển thị khi tắt chế độ tự động cập nhật dữ liệu
+        refreshCountdown.style.display = socketConnected ? 'inline-block' : 'none';
+      });
+      
+      // Khởi tạo ứng dụng
+      initializeStockList();
+    });
+  </script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

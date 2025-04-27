@@ -1,0 +1,24 @@
+{
+  "name": "stock-realtime-crawler",
+  "version": "1.0.0",
+  "description": "Crawler for stock price data from VietStock",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "basic-ftp": "^5.0.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.5.0",
+    "puppeteer-core": "^21.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

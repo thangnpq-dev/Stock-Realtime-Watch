@@ -139,4 +139,5 @@ dist
 
 .env
 /user-data
+latest-stock-data.json
 .DS_Store
