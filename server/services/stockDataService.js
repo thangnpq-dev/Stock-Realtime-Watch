@@ -76,9 +76,9 @@ class StockDataService {
         return stockData;
       }
       
-      // Lọc dữ liệu theo các mã cổ phiếu
+      // Lọc dữ liệu theo các mã cổ phiếu (sử dụng includes thay vì so sánh chính xác)
       const filteredData = stockData.data.filter(item => 
-        stockCodes.some(code => code.toUpperCase() === item.code.toUpperCase())
+        stockCodes.some(code => item.code.toUpperCase().includes(code.toUpperCase()))
       );
       
       // Trả về kết quả với các thuộc tính gốc

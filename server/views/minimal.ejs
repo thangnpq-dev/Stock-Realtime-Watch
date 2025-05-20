@@ -370,14 +370,21 @@
         
         // Update each stock item with new data
         data.data.forEach(stock => {
-          const allStockItems = allStocksLine.querySelectorAll(`.stock-item[data-code="${stock.code}"]`);
-          const favStockItems = favoriteStocksLine.querySelectorAll(`.stock-item[data-code="${stock.code}"]`);
+          // Sử dụng logic linh hoạt hơn để tìm các phần tử stock phù hợp
+          // Lấy tất cả các phần tử stock item có trong DOM
+          const allItems = [...allStocksLine.querySelectorAll('.stock-item'), ...favoriteStocksLine.querySelectorAll('.stock-item')];
           
-          const items = [...allStockItems, ...favStockItems];
+          // Lọc các phần tử mà mã của chúng có trong stock.code hoặc ngược lại
+          const matchingItems = allItems.filter(item => {
+            const itemCode = item.getAttribute('data-code').toUpperCase();
+            const stockCode = stock.code.toUpperCase();
+            
+            return stockCode.includes(itemCode) || itemCode.includes(stockCode);
+          });
           
-          items.forEach(item => {
+          matchingItems.forEach(item => {
             // First, remove old change classes
-            item.classList.remove('up', 'down', 'unchanged', 'ceiling', 'floor');
+            item.classList.remove('up', 'down', 'unchanged', 'ceiling', 'floor', 'reference');
             
             const priceElement = item.querySelector('.price');
             const changeElement = item.querySelector('.change');
@@ -394,7 +401,12 @@
               // Get the percentage change value for comparison
               const percentValue = parseFloat(stock.percentChange.replace('%', ''));
               
-              if (parseFloat(stock.change) > 0) {
+              // Handle empty change values
+              if (stock.change === "") {
+                stock.change = "0";
+                stock.percentChange = "0.00%";
+                changeClass = 'reference';
+              } else if (parseFloat(stock.change) > 0) {
                 // Check for ceiling (>= 6.7%)
                 if (percentValue >= 6.7) {
                   changeClass = 'ceiling';
@@ -409,6 +421,9 @@
                 } else {
                   changeClass = 'down';
                 }
+              } else if (parseFloat(stock.change) === 0 || Math.abs(parseFloat(stock.change)) < 0.01) {
+                // This is a reference price (unchanged from reference)
+                changeClass = 'reference';
               }
               
               // Use percentChange directly from the JSON data

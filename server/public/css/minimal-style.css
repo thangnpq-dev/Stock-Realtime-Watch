@@ -11,6 +11,7 @@
   --down-color: #dc3545;
   --ceiling-color: #9c27b0; /* Purple for ceiling (>= 6.7%) */
   --floor-color: #00bcd4; /* Light blue for floor (<= -6.7%) */
+  --reference-color: #ffc107; /* Deep yellow for reference prices */
   --unchanged-color: #6c757d;
   --border-radius: 4px;
   --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -29,7 +30,7 @@ body {
   position: fixed;
   top: 10px;
   left: 10px;
-  width: 180px; /* Narrower for vertical layout */
+  width: 220px; /* Narrower for vertical layout */
   display: flex;
   flex-direction: column; /* Changed to column for vertical layout */
   background-color: white;
@@ -108,7 +109,7 @@ body {
 .mini-line-content {
   flex-grow: 1;
   overflow-y: auto; /* Vertical scrolling */
-  max-height: 300px; /* Limit height and enable scrolling */
+  max-height: 100vh; /* Limit height and enable scrolling */
   scrollbar-width: thin;
 }
 
@@ -188,28 +189,35 @@ body {
   border-left-color: var(--floor-color);
 }
 
+.stock-item.reference {
+  border-left-color: var(--reference-color);
+}
+
 .stock-code {
   font-weight: normal; /* Changed from bold to normal */
   flex: 0 0 40px; /* Fixed width for stock code */
+  font-size: 12px; /* Reduced from default */
 }
 
 .stock-data {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* Changed from flex-end to space-between */
   align-items: center;
-  gap: 8px; /* Increased gap for better spacing between price and change */
+  gap: 8px;
 }
 
 .price {
   font-weight: normal;
-  font-size: 14px;
-  white-space: nowrap; /* Prevent wrapping */
+  font-size: 12px;
+  white-space: nowrap;
+  margin-left: 8px; /* Add some spacing from the stock code */
 }
 
 .change {
-  font-size: 13px;
-  white-space: nowrap; /* Prevent wrapping */
+  font-size: 12px;
+  white-space: nowrap;
+  margin-left: auto; /* Push to the right */
 }
 
 .change.up {
@@ -230,6 +238,10 @@ body {
 
 .change.unchanged {
   color: var(--unchanged-color);
+}
+
+.change.reference {
+  color: var(--reference-color);
 }
 
 /* Stock actions */
