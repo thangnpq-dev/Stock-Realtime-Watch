@@ -124,23 +124,49 @@ class BrowserService {
       await this.page.goto(process.env.PAGE, { waitUntil: 'networkidle2' });
       await logMessage('BROWSER', 'INFO', `Đã truy cập: ${process.env.PAGE}`);
       
-      // Kéo xuống cuối trang
+      // Kéo xuống cuối trang 10 lần, mỗi lần cách nhau 3 giây
       await this.page.evaluate(async () => {
         await new Promise(resolve => {
-          let totalHeight = 0;
-          const distance = 100;
-          const timer = setInterval(() => {
-            const scrollHeight = document.body.scrollHeight;
-            window.scrollBy(0, distance);
-            totalHeight += distance;
-            if(totalHeight >= scrollHeight){
-              clearInterval(timer);
+          let scrollCount = 0;
+          const maxScrolls = 10;
+          
+          const performScroll = () => {
+            return new Promise(scrollResolve => {
+              let totalHeight = 0;
+              const distance = 100;
+              const timer = setInterval(() => {
+                const scrollHeight = document.body.scrollHeight;
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+                if(totalHeight >= scrollHeight){
+                  clearInterval(timer);
+                  scrollResolve();
+                }
+              }, 50);
+            });
+          };
+          
+          const scrollInterval = setInterval(async () => {
+            await performScroll();
+            scrollCount++;
+            
+            if(scrollCount >= maxScrolls) {
+              clearInterval(scrollInterval);
               resolve();
             }
-          }, 50);
+          }, 3000);
+          
+          // Thực hiện lần scroll đầu tiên ngay lập tức
+          performScroll().then(() => {
+            scrollCount++;
+            if(scrollCount >= maxScrolls) {
+              clearInterval(scrollInterval);
+              resolve();
+            }
+          });
         });
       });
-      await logMessage('BROWSER', 'INFO', 'Đã kéo xuống cuối trang');
+      await logMessage('BROWSER', 'INFO', 'Đã kéo xuống cuối trang 10 lần thành công');
       
       // Kéo lên đầu trang
       await this.page.evaluate(() => {
