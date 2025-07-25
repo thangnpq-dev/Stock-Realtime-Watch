@@ -76,7 +76,7 @@ async function processLaunchQueue() {
           // '--window-size=1920,1080'
         ],
         defaultViewport: null,
-        ignoreDefaultArgs: ['--enable-automation']
+        ignoreDefaultArgs: ['--enable-automation'],
       });
 
       browserInstances.set(userDataDir, browser);
