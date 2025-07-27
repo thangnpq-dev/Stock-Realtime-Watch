@@ -4,7 +4,7 @@ const path = require('path');
 class StockDataService {
   constructor() {
     // Đường dẫn đến file JSON chứa dữ liệu cổ phiếu
-    this.dataDir = process.env.DATA_DIR || path.join(__dirname, '../data');
+    this.dataDir = process.env.DATA_DIR || "/Users/thangnpq/Desktop/GitHub/Stock-Realtime-Watch/crawler/data" || path.join(__dirname, '../data');
     this.latestDataFile = path.join(this.dataDir, 'latest-stock-data.json');
     this._lastLoggedMinute = null;
   }

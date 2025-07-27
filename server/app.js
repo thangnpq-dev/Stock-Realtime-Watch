@@ -11,7 +11,12 @@ const stockDataService = require('./services/stockDataService');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST']
+  }
+});
 
 // Cấu hình Express
 app.set('view engine', 'ejs');
@@ -21,6 +26,10 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
+// Phục vụ React app khi được build (để sẵn sàng cho production)
+app.use('/react', express.static(path.join(__dirname, '../client/build')));
+
+// Legacy EJS routes
 // Main UI route
 app.get('/', (req, res) => {
   res.render('index', { error: null, stockData: null });
@@ -31,18 +40,23 @@ app.get('/minimal', (req, res) => {
   res.render('minimal');
 });
 
+// Route cho React version
+app.get('/react*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
 // API endpoint để nhận danh sách mã cổ phiếu và trả về dữ liệu
 app.post('/api/stock-data', async (req, res) => {
   try {
     const { stockCodes } = req.body;
-    
+
     if (!stockCodes || !Array.isArray(stockCodes) || stockCodes.length === 0) {
       return res.status(400).json({ error: 'Missing or invalid stock codes' });
     }
-    
+
     // Lấy dữ liệu cổ phiếu từ file JSON
     const stockData = await stockDataService.getFilteredStockData(stockCodes);
-    
+
     return res.json(stockData);
   } catch (error) {
     console.error('Error in /api/stock-data:', error);
@@ -53,22 +67,22 @@ app.post('/api/stock-data', async (req, res) => {
 // Socket.IO connections
 io.on('connection', (socket) => {
   console.log('Client connected');
-  
+
   // Client gửi danh sách mã cổ phiếu cần theo dõi
   socket.on('watch-stocks', async (stockCodes) => {
     if (!stockCodes || !Array.isArray(stockCodes)) {
       socket.emit('error', { message: 'Invalid stock codes' });
       return;
     }
-    
+
     // Lưu danh sách mã cổ phiếu vào socket
     socket.stockCodes = stockCodes;
-    
+
     // Gửi dữ liệu ban đầu
     const initialData = await stockDataService.getFilteredStockData(stockCodes);
     socket.emit('stock-data', initialData);
   });
-  
+
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   });
@@ -82,12 +96,12 @@ async function broadcastStockData() {
   try {
     // Lấy danh sách clients đang kết nối
     const connectedClients = Array.from(io.sockets.sockets).map(socket => socket[1]);
-    
+
     // Nếu không có client nào kết nối, thoát
     if (connectedClients.length === 0) {
       return;
     }
-    
+
     // Tạo danh sách tất cả mã cổ phiếu cần lấy dữ liệu
     const allStockCodes = new Set();
     connectedClients.forEach(client => {
@@ -95,25 +109,25 @@ async function broadcastStockData() {
         client.stockCodes.forEach(code => allStockCodes.add(code));
       }
     });
-    
+
     // Nếu không có mã cổ phiếu nào, thoát
     if (allStockCodes.size === 0) {
       return;
     }
-    
+
     // Lấy dữ liệu cổ phiếu từ file JSON
     const stockData = await stockDataService.getStockData();
-    
+
     // Gửi dữ liệu cho từng client dựa trên danh sách mã cổ phiếu của họ
     connectedClients.forEach(client => {
       if (client.stockCodes && Array.isArray(client.stockCodes)) {
         const filteredData = {
           ...stockData,
-          data: stockData.data.filter(item => 
+          data: stockData.data.filter(item =>
             client.stockCodes.some(code => code.toUpperCase() === item.code.toUpperCase())
           )
         };
-        
+
         client.emit('stock-data', filteredData);
       }
     });
